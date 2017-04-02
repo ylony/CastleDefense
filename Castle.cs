@@ -8,11 +8,22 @@ namespace CastleDefense
         private int ptsDeVie = 100;
         Boolean alive;
         private int x, y;
+
         public Castle(int x, int y)
         {
             this.alive = true;
             this.x = x;
             this.y = y;
+        }
+
+        public int getX()
+        {
+            return this.x;
+        }
+
+        public int getY()
+        {
+            return this.y;
         }
 
         public PictureBox DrawCastle()
@@ -37,6 +48,6 @@ namespace CastleDefense
                 return "La château est encore en vie et possède : " + ptsDeVie;
             }
             return "Le château est détruit";
-            }
+       }
     }
 }

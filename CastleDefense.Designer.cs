@@ -39,6 +39,7 @@
             this.Name = "CastleDefense";
             this.Padding = new System.Windows.Forms.Padding(20, 69, 20, 23);
             this.Resizable = false;
+            this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "CastleDefense";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.CastleDefense_Load);

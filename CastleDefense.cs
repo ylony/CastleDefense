@@ -23,10 +23,10 @@ namespace CastleDefense
 
         private void CastleDefense_Load(object sender, EventArgs e)
         {
-           Player maurice = this.addPlayer("Maurice");
-           Player kevin = this.addPlayer("Kevin");
-           this.Controls.Add(maurice.getCastle().DrawCastle());
-           this.Controls.Add(kevin.getCastle().DrawCastle());
+            Player maurice = this.addPlayer("Maurice");
+            Player kevin = this.addPlayer("Kevin");
+            Game game = new Game();
+            this.Controls.Add(game.DrawGround());
         }
 
         private Player addPlayer(String nom)
@@ -34,6 +34,8 @@ namespace CastleDefense
             if (Player.getNbPlayer() < maxPlayers)
             {
                 Player newPlayer = new Player(nom);
+                this.Controls.Add(newPlayer.getCastle().DrawCastle());
+                this.Controls.Add(newPlayer.DrawName());
                 return newPlayer;
             }
             else
@@ -42,5 +44,7 @@ namespace CastleDefense
                 return null;
             }
         }
+
+
     }
 }
