@@ -6,9 +6,9 @@ namespace CastleDefense
 {
     public class Player
     {
-        private String nom;
+        public String nom { get; set; }
         private int points;
-        private static int nbPlayers = 0;
+        public static int nbPlayers = 0;
         private Castle castle;
 
         public Player(String nom)
@@ -63,6 +63,11 @@ namespace CastleDefense
             drawname.Theme = MetroFramework.MetroThemeStyle.Dark;
             drawname.FontSize = MetroFramework.MetroLabelSize.Tall;
             return drawname;
+        }
+
+        public int getPoints()
+        {
+            return this.points;
         }
     }
 }

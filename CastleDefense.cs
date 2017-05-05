@@ -13,20 +13,44 @@ namespace CastleDefense
 {
     public partial class CastleDefense : MetroFramework.Forms.MetroForm
     {
+        public Panel config;
         //Config
         private int maxPlayers = 2;
         //
-        public CastleDefense()
+        public CastleDefense(Panel config)
         {
             InitializeComponent();
+            this.config = config;
+            this.FormClosed += new FormClosedEventHandler(this.closeqt);
         }
 
         private void CastleDefense_Load(object sender, EventArgs e)
         {
-            Player maurice = this.addPlayer("Maurice");
-            Player kevin = this.addPlayer("Kevin");
+            
+        }
+
+        private void closeqt(object sender, EventArgs e)
+        {
+            config.Close();
+        }
+
+        public void startGame()
+        {
+            Player.nbPlayers = 0;
+            Player aux = this.addPlayer(Panel.p1.nom);
+            Player aux2;
+            if (Panel.p2.nom == null)
+            {
+                aux2 = this.addPlayer("IA");
+            }
+            else
+            {
+                aux2 = this.addPlayer(Panel.p2.nom);
+            }
             Game game = new Game();
             this.Controls.Add(game.DrawGround());
+            this.Controls.Add(game.DrawScore(aux, aux2));
+            this.Show();
         }
 
         private Player addPlayer(String nom)
@@ -44,7 +68,5 @@ namespace CastleDefense
                 return null;
             }
         }
-
-
     }
 }

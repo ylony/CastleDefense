@@ -16,7 +16,9 @@ namespace CastleDefense
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CastleDefense());
+            CastleDefense mainGame = new CastleDefense(null);
+            Application.Run(new Panel(mainGame));
+
         }
     }
 }
